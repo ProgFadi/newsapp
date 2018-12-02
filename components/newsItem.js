@@ -1,14 +1,20 @@
 import React, {Component} from 'react'
 import {View,Image,Text,StyleSheet} from 'react-native'
 
-export default class Header extends Component{
+export default class NewsItem extends Component{
+
+   
     render()
     {
+        let {item}=this.props;
+        const {description,publishedAt,title,urlToImage}=item;
         return (
             <View style={style.headerContainer}>
-            <Image source={require('../assets/setting.png')} style={{width:30,height:30,marginLeft:8}} />
-            <Image source={require('../assets/logo.png')} style={style.image}  resizeMode="cover"/>
-           <Text style={style.title}>News App</Text>
+           
+            <Image source={{url:urlToImage}} style={style.image}  resizeMode="cover"/>
+            <Text style={style.title}>{title}</Text>
+           <Text style={style.title}>{description}</Text>
+           <Text style={style.title}>{publishedAt}</Text>
             </View>
         )
     }
